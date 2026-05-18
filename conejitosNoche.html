@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Paisaje Animado Aesthetic</title>
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    font-family:'Georgia', serif;
+    background:#120f1f;
+}
+
+.scene{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #1b1835 0%,
+        #3f2b5c 25%,
+        #8b4c7a 55%,
+        #f1a06d 78%,
+        #ffe2b8 100%
+    );
+}
+
+
+.sun{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #fff6d5 0%,
+    #ffd6a5 60%,
+    transparent 75%);
+
+    top:70px;
+    right:120px;
+
+    animation:sunPulse 5s ease-in-out infinite;
+}
+
+@keyframes sunPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+
+.cloud{
+    position:absolute;
+    background:rgba(255,255,255,.7);
+
+    width:180px;
+    height:60px;
+
+    border-radius:100px;
+}
+
+.cloud::before,
+.cloud::after{
+    content:'';
+    position:absolute;
+    background:rgba(255,255,255,.7);
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:80px;
+    height:80px;
+    top:-40px;
+    left:20px;
+}
+
+.cloud::after{
+    width:100px;
+    height:100px;
+    top:-50px;
+    right:25px;
+}
+
+.cloud1{
+    top:120px;
+    left:-250px;
+    animation:moveClouds 50s linear infinite;
+}
+
+.cloud2{
+    top:180px;
+    left:-350px;
+    transform:scale(.8);
+    animation:moveClouds 65s linear infinite;
+}
+
+.cloud3{
+    top:80px;
+    left:-450px;
+    transform:scale(1.2);
+    animation:moveClouds 80s linear infinite;
+}
+
+@keyframes moveClouds{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(1700px);
+    }
+}
+
+
+.bird{
+    position:absolute;
+    width:30px;
+    height:15px;
+    border-top:3px solid white;
+    border-radius:50%;
+}
+
+.bird1{
+    top:150px;
+    left:200px;
+    animation:birdFly 18s linear infinite;
+}
+
+.bird2{
+    top:190px;
+    left:350px;
+    animation:birdFly 24s linear infinite;
+}
+
+@keyframes birdFly{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(1000px);
+    }
+}
+
+
+.quote-container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    width:80%;
+    z-index:20;
+}
+
+.quote{
+    font-size:3rem;
+    color:white;
+    line-height:1.4;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.5),
+    0 0 25px rgba(255,200,180,.4);
+
+    animation:quoteGlow 4s ease-in-out infinite;
+}
+
+@keyframes quoteGlow{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+}
+
+
+.mountains{
+    position:absolute;
+    bottom:240px;
+    width:100%;
+    height:400px;
+}
+
+.mountain{
+    position:absolute;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:220px solid transparent;
+    border-right:220px solid transparent;
+    border-bottom:420px solid #2e2340;
+}
+
+.m1{
+    left:-60px;
+}
+
+.m2{
+    left:280px;
+    border-bottom-color:#39294d;
+}
+
+.m3{
+    left:620px;
+    border-bottom-color:#4a345f;
+}
+
+.m4{
+    left:980px;
+    border-bottom-color:#3b2850;
+}
+
+
+.river{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:500px;
+    height:260px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(173,233,255,.9),
+        rgba(64,146,255,.7)
+    );
+
+    border-radius:50% 50% 0 0;
+
+    animation:waterFlow 6s ease-in-out infinite;
+}
+
+@keyframes waterFlow{
+
+    0%,100%{
+        transform:translateX(-50%) scaleX(1);
+    }
+
+    50%{
+        transform:translateX(-50%) scaleX(1.03);
+    }
+}
+
+
+.ground{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:260px;
+
+    background:
+    linear-gradient(
+        to top,
+        #17341d,
+        #295132,
+        #41764c
+    );
+}
+
+
+.tree{
+    position:absolute;
+    bottom:170px;
+}
+
+
+
+.trunk{
+    position:relative;
+
+    width:30px;
+    height:165px;
+
+    margin:auto;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        to right,
+        #3a2418 0%,
+        #5a3825 20%,
+        #7a5034 50%,
+        #5b3926 80%,
+        #3b2418 100%
+    );
+
+    top:-55px;
+
+    z-index:1;
+
+    box-shadow:
+    inset -4px 0 0 rgba(0,0,0,.15),
+    inset 4px 0 0 rgba(255,255,255,.05),
+    0 8px 15px rgba(0,0,0,.2);
+}
+
+
+
+.trunk::before{
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    border-radius:16px;
+
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 8px,
+        rgba(255,255,255,.04) 9px,
+        rgba(0,0,0,.05) 11px
+    );
+
+    opacity:.7;
+}
+
+
+
+.trunk::after{
+    content:'';
+
+    position:absolute;
+
+    width:50px;
+    height:14px;
+
+    background:rgba(0,0,0,.18);
+
+    left:50%;
+    transform:translateX(-50%);
+
+    bottom:-10px;
+
+    border-radius:50%;
+
+    filter:blur(5px);
+}
+
+
+
+.leaves{
+    position:relative;
+
+    width:130px;
+    height:130px;
+
+    background:#2d6b3f;
+    border-radius:50%;
+
+    margin:auto;
+    top:-20px;
+
+    z-index:2;
+
+    animation:treeSwing 5s ease-in-out infinite;
+}
+
+.leaves::before,
+.leaves::after{
+    content:'';
+    position:absolute;
+    background:#347c49;
+    border-radius:50%;
+}
+
+.leaves::before{
+    width:100px;
+    height:100px;
+    top:-35px;
+    left:-15px;
+}
+
+.leaves::after{
+    width:95px;
+    height:95px;
+    top:-25px;
+    right:-15px;
+}
+
+@keyframes treeSwing{
+
+    0%,100%{
+        transform:rotate(0deg);
+    }
+
+    50%{
+        transform:rotate(2deg);
+    }
+}
+
+.tree1{
+    left:120px;
+    transform:scale(1.2);
+}
+
+.tree2{
+    left:320px;
+}
+
+.tree3{
+    right:220px;
+    transform:scale(1.1);
+}
+
+.tree4{
+    right:70px;
+    transform:scale(.9);
+}
+
+
+
+.flower{
+    position:absolute;
+    bottom:80px;
+
+    width:10px;
+    height:40px;
+
+    background:#2f6d3a;
+    border-radius:20px;
+}
+
+.flower::before{
+    content:'';
+
+    position:absolute;
+
+    width:22px;
+    height:22px;
+
+    background:pink;
+    border-radius:50%;
+
+    top:-10px;
+    left:-6px;
+
+    box-shadow:
+    12px 0 pink,
+    -12px 0 pink,
+    0 12px pink,
+    0 -12px pink;
+}
+
+.f1{ left:100px; }
+.f2{ left:170px; }
+.f3{ left:260px; }
+.f4{ left:760px; }
+.f5{ left:860px; }
+.f6{ right:150px; }
+.f7{ right:250px; }
+
+
+
+.firefly{
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    background:#fff7a5;
+    border-radius:50%;
+
+    box-shadow:0 0 15px #fff7a5;
+
+    animation:fly 8s ease-in-out infinite;
+}
+
+@keyframes fly{
+
+    0%{
+        transform:translate(0,0);
+        opacity:.2;
+    }
+
+    50%{
+        transform:translate(30px,-40px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-20px,20px);
+        opacity:.3;
+    }
+}
+
+
+
+.rabbit{
+    position:absolute;
+    bottom:105px;
+    right:280px;
+
+    width:85px;
+    height:50px;
+
+    animation:rabbitJump 5s ease-in-out infinite;
+}
+
+.rabbit-body{
+    position:absolute;
+
+    width:60px;
+    height:40px;
+
+    background:#f5f2f2;
+    border-radius:50%;
+
+    bottom:0;
+    left:10px;
+
+    box-shadow:
+    inset -5px -5px 0 rgba(0,0,0,.05),
+    0 5px 10px rgba(0,0,0,.15);
+}
+
+.rabbit-head{
+    position:absolute;
+
+    width:32px;
+    height:30px;
+
+    background:#f5f2f2;
+    border-radius:50%;
+
+    right:0;
+    top:5px;
+}
+
+.ear{
+    position:absolute;
+
+    width:10px;
+    height:35px;
+
+    background:#f5f2f2;
+    border-radius:20px;
+
+    top:-25px;
+
+    overflow:hidden;
+}
+
+.ear::before{
+    content:'';
+
+    position:absolute;
+
+    width:5px;
+    height:25px;
+
+    background:#ffc8d2;
+    border-radius:20px;
+
+    left:2.5px;
+    top:5px;
+}
+
+.ear1{
+    left:4px;
+    transform:rotate(-8deg);
+}
+
+.ear2{
+    left:16px;
+    transform:rotate(8deg);
+}
+
+.eye{
+    position:absolute;
+
+    width:5px;
+    height:5px;
+
+    background:#222;
+    border-radius:50%;
+
+    right:8px;
+    top:12px;
+}
+
+.nose{
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    background:#ffb0b0;
+    border-radius:50%;
+
+    right:2px;
+    top:18px;
+}
+
+.tail{
+    position:absolute;
+
+    width:16px;
+    height:16px;
+
+    background:white;
+    border-radius:50%;
+
+    left:0;
+    bottom:10px;
+}
+
+.leg{
+    position:absolute;
+
+    width:14px;
+    height:8px;
+
+    background:#e6dddd;
+    border-radius:20px;
+
+    bottom:-2px;
+}
+
+.leg1{
+    left:20px;
+}
+
+.leg2{
+    left:45px;
+}
+
+.rabbit-shadow{
+    position:absolute;
+
+    width:70px;
+    height:10px;
+
+    background:rgba(0,0,0,.15);
+    border-radius:50%;
+
+    bottom:-12px;
+    left:8px;
+
+    filter:blur(3px);
+
+    animation:shadowMove 5s ease-in-out infinite;
+}
+
+@keyframes rabbitJump{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    20%{
+        transform:translateY(-25px);
+    }
+
+    40%{
+        transform:translateY(0);
+    }
+
+    60%{
+        transform:translateY(-15px);
+    }
+
+    80%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes shadowMove{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.15;
+    }
+
+    20%{
+        transform:scale(.75);
+        opacity:.08;
+    }
+
+    40%{
+        transform:scale(.85);
+        opacity:.1;
+    }
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(255,255,255,.05),
+    transparent 60%);
+}
+
+/* --- Vertical (retrato) --- */
+@media screen and (max-width: 480px) {
+
+  .sun {
+    width: 100px;
+    height: 100px;
+    top: 40px;
+    right: 40px;
+  }
+
+  .star {
+    width: 2px;
+    height: 2px;
+  }
+
+  .cloud {
+    width: 120px;
+    height: 40px;
+  }
+  .cloud::before {
+    width: 60px; height: 60px; top: -30px; left: 15px;
+  }
+  .cloud::after {
+    width: 75px; height: 75px; top: -38px; right: 20px;
+  }
+  .cloud1 { top: 80px;  left: -200px; }
+  .cloud2 { top: 130px; left: -280px; }
+  .cloud3 { top: 60px;  left: -350px; }
+
+  .bird {
+    width: 20px;
+    height: 10px;
+    border-top-width: 2px;
+  }
+  .bird1 { top: 100px; left: 100px; }
+  .bird2 { top: 130px; left: 200px; }
+
+  .quote {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .mountains {
+    bottom: 150px;
+    height: 250px;
+  }
+  .mountain {
+    border-left-width: 100px;
+    border-right-width: 100px;
+    border-bottom-width: 200px;
+  }
+  .m1 { left: -20px; }
+  .m2 { left: 130px; }
+  .m3 { left: 280px; }
+  .m4 { display: none; }
+
+  .river {
+    width: 300px;
+    height: 160px;
+  }
+
+  .ground {
+    height: 160px;
+  }
+
+  .tree {
+    bottom: 110px;
+  }
+  .trunk {
+    width: 20px;
+    height: 110px;
+    top: -35px;
+  }
+  .leaves {
+    width: 90px;
+    height: 90px;
+    top: -15px;
+  }
+  .leaves::before {
+    width: 70px; height: 70px; top: -25px; left: -10px;
+  }
+  .leaves::after {
+    width: 65px; height: 65px; top: -18px; right: -10px;
+  }
+  .tree1 { left: 50px;  transform: scale(0.8); }
+  .tree2 { left: 180px; transform: scale(0.7); }
+  .tree3 { right: 150px; transform: scale(0.7); }
+  .tree4 { right: 30px;  transform: scale(0.6); }
+
+  .flower {
+    bottom: 50px;
+    width: 6px;
+    height: 24px;
+  }
+  .flower::before {
+    width: 14px; height: 14px;
+    top: -6px; left: -4px;
+    box-shadow: 8px 0 pink, -8px 0 pink, 0 8px pink, 0 -8px pink;
+  }
+  .f1 { left: 60px; }
+  .f2 { left: 110px; }
+  .f3 { left: 180px; }
+  .f4 { left: 460px; }
+  .f5 { left: 530px; }
+  .f6 { right: 90px; }
+  .f7 { right: 150px; }
+
+  .rabbit {
+    right: 100px;
+    bottom: 65px;
+    transform-origin: bottom center;
+    transform: scale(0.6);
+  }
+
+  .firefly {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+
+/* --- Horizontal (paisaje) --- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+  .sun {
+    width: 80px;
+    height: 80px;
+    top: 20px;
+    right: 40px;
+  }
+
+  .star {
+    width: 1.5px;
+    height: 1.5px;
+  }
+
+  .cloud {
+    width: 100px;
+    height: 35px;
+  }
+  .cloud::before {
+    width: 50px; height: 50px; top: -25px; left: 12px;
+  }
+  .cloud::after {
+    width: 65px; height: 65px; top: -32px; right: 16px;
+  }
+  .cloud1 { top: 40px;  left: -150px; }
+  .cloud2 { top: 70px;  left: -200px; }
+  .cloud3 { top: 30px;  left: -250px; }
+
+  .bird {
+    width: 16px;
+    height: 8px;
+    border-top-width: 2px;
+  }
+  .bird1 { top: 70px;  left: 150px; }
+  .bird2 { top: 90px;  left: 250px; }
+
+  .quote {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .mountains {
+    bottom: 120px;
+    height: 180px;
+  }
+  .mountain {
+    border-left-width: 80px;
+    border-right-width: 80px;
+    border-bottom-width: 150px;
+  }
+  .m1 { left: -10px; }
+  .m2 { left: 120px; }
+  .m3 { left: 250px; }
+  .m4 { display: none; }
+
+  .river {
+    width: 200px;
+    height: 100px;
+  }
+
+  .ground {
+    height: 120px;
+  }
+
+  .tree {
+    bottom: 80px;
+  }
+  .trunk {
+    width: 16px;
+    height: 80px;
+    top: -25px;
+  }
+  .leaves {
+    width: 60px;
+    height: 60px;
+    top: -10px;
+  }
+  .leaves::before {
+    width: 50px; height: 50px; top: -18px; left: -8px;
+  }
+  .leaves::after {
+    width: 45px; height: 45px; top: -13px; right: -8px;
+  }
+  .tree1 { left: 30px;  transform: scale(0.7); }
+  .tree2 { left: 140px; transform: scale(0.6); }
+  .tree3 { right: 120px; transform: scale(0.6); }
+  .tree4 { right: 20px;  transform: scale(0.5); }
+
+  .flower {
+    bottom: 30px;
+    width: 5px;
+    height: 18px;
+  }
+  .flower::before {
+    width: 10px; height: 10px;
+    top: -5px; left: -3px;
+    box-shadow: 6px 0 pink, -6px 0 pink, 0 6px pink, 0 -6px pink;
+  }
+  .f1 { left: 50px; }
+  .f2 { left: 90px; }
+  .f3 { left: 150px; }
+  .f4 { left: 380px; }
+  .f5 { left: 440px; }
+  .f6 { right: 80px; }
+  .f7 { right: 130px; }
+
+  .rabbit {
+    right: 60px;
+    bottom: 40px;
+    transform-origin: bottom center;
+    transform: scale(0.5);
+  }
+
+  .firefly {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    
+    <div class="sun"></div>
+
+    
+    <div class="star" style="top:60px; left:100px;"></div>
+    <div class="star" style="top:120px; left:280px;"></div>
+    <div class="star" style="top:80px; left:520px;"></div>
+    <div class="star" style="top:50px; left:850px;"></div>
+    <div class="star" style="top:140px; left:1100px;"></div>
+
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    
+    <div class="bird bird1"></div>
+    <div class="bird bird2"></div>
+
+
+    <div class="quote-container">
+        <div class="quote">
+            “La belleza del mundo empieza<br>
+            en la forma en que decidimos mirarlo.”
+        </div>
+    </div>
+
+    
+    <div class="mountains">
+        <div class="mountain m1"></div>
+        <div class="mountain m2"></div>
+        <div class="mountain m3"></div>
+        <div class="mountain m4"></div>
+    </div>
+
+    
+    <div class="river"></div>
+
+    
+    <div class="ground"></div>
+
+    
+    <div class="tree tree1">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+    </div>
+
+    <div class="tree tree2">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+    </div>
+
+    <div class="tree tree3">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+    </div>
+
+    <div class="tree tree4">
+        <div class="leaves"></div>
+        <div class="trunk"></div>
+    </div>
+
+
+    <div class="flower f1"></div>
+    <div class="flower f2"></div>
+    <div class="flower f3"></div>
+    <div class="flower f4"></div>
+    <div class="flower f5"></div>
+    <div class="flower f6"></div>
+    <div class="flower f7"></div>
+
+    
+    <div class="rabbit">
+
+        <div class="rabbit-shadow"></div>
+
+        <div class="rabbit-body"></div>
+
+        <div class="tail"></div>
+
+        <div class="rabbit-head">
+
+            <div class="ear ear1"></div>
+            <div class="ear ear2"></div>
+
+            <div class="eye"></div>
+            <div class="nose"></div>
+
+        </div>
+
+        <div class="leg leg1"></div>
+        <div class="leg leg2"></div>
+
+    </div>
+
+    
+    <div class="firefly" style="left:200px; bottom:200px;"></div>
+    <div class="firefly" style="left:500px; bottom:250px; animation-delay:2s;"></div>
+    <div class="firefly" style="left:800px; bottom:180px; animation-delay:4s;"></div>
+    <div class="firefly" style="right:220px; bottom:230px; animation-delay:1s;"></div>
+
+    
+    <div class="overlay"></div>
+
+</div>
+
+</body>
+</html>
